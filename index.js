@@ -6,7 +6,7 @@ const Engineer = require('./lib/engineer');
 const htmlPage = require(`./src/htmlPage`)
 const { profile } = require('console');
 
-
+const teamArr = [];
 const start = () => {
 
   inquirer.prompt([{
@@ -44,7 +44,7 @@ const start = () => {
       .then((data) => {
         let newManager;
         newManager = new Manager(data.name, data.id, data.email, data.office);
-
+        teamArr.push(newManager);
         chooseEmployee();
       })
 
@@ -102,6 +102,7 @@ const start = () => {
     .then((data) => {
       let newEngineer;
       newEngineer = new Engineer(data.name, data.id, data.email, data.github);
+      teamArr.push(newEngineer);
       chooseEmployee();
     })
   }
@@ -130,11 +131,16 @@ const start = () => {
     },
     ])
     .then((data) => {
-      let newEngineer;
-      newEngineer = new Intern(data.name, data.id, data.email, data.school);
+      let newIntern;
+      newIntern = new Intern(data.name, data.id, data.email, data.school);
+      teamArr.push(newIntern);
       chooseEmployee();
     })
   }
 
 }
 
+const makeTeamCards = () => {
+
+  let cards = "";
+}
