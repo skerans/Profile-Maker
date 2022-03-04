@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "inquirer": "^8.2.0",
+    "jest": "^27.5.1"
+  },
+  "name": "profile-maker",
+  "description": "Generate an automatic profile for team members based on parameters provided from command prompts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skerans/Profile-Maker.git"
+  },
+  "author": "Spencer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/skerans/Profile-Maker/issues"
+  },
+  "homepage": "https://github.com/skerans/Profile-Maker#readme"
+}
