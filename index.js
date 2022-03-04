@@ -23,22 +23,22 @@ const start = () => {
     inquirer.prompt([{
       type: `input`,
       name: `name`,
-      message: `What is the name of the team/s manager?`
+      message: `What is the name of the team\'s manager?`
     },
     {
       type: `input`,
       name: `id`,
-      message: `What is the manager/s ID?`
+      message: `What is the manager\'s ID?`
     },
     {
       type: `input`,
       name: `email`,
-      message: `What is the manager/s email address?`
+      message: `What is the manager\'s email address?`
     },
     {
       type: `input`,
       name: `office`,
-      message: `What is the manager/s office number?`
+      message: `What is the manager\'s office number?`
     },
     ])
       .then((data) => {
@@ -64,10 +64,10 @@ const start = () => {
       .then((data) => {
         switch (data.continue) {
           case `Engineer`:
-            newEngineer();
+            chooseEngineer();
             break;
           case `Intern`:
-            newIntern();
+            chooseIntern();
             break;
           default:
             fs.writeFile(`./team-profile.html`, htmlPage)
@@ -76,7 +76,65 @@ const start = () => {
       })
   }
 
+  function chooseEngineer() {
+    inquirer.prompt([{
+      type: `input`,
+      name: `name`,
+      message: `What is the name of the engineer?`
+    },
+    {
+      type: `input`,
+      name: `id`,
+      message: `What is the engineer\'s ID?`,
+    },
+    {
+      type: `input`,
+      name: `email`,
+      message: `What is the engineer\'s email address?`,
+     
+    },
+    {
+      type: `input`,
+      name: `github`,
+      message: `What is the engineers\'s GitHub username?`,
+    },
+    ])
+    .then((data) => {
+      let newEngineer;
+      newEngineer = new Engineer(data.name, data.id, data.email, data.github);
+      chooseEmployee();
+    })
+  }
 
+  function chooseIntern() {
+    inquirer.prompt([{
+      type: `input`,
+      name: `name`,
+      message: `What is the name of the intern?`
+    },
+    {
+      type: `input`,
+      name: `id`,
+      message: `What is the intern\'s ID?`,
+    },
+    {
+      type: `input`,
+      name: `email`,
+      message: `What is the intern\'s email address?`,
+     
+    },
+    {
+      type: `input`,
+      name: `school`,
+      message: `What school does the intern attend?`,
+    },
+    ])
+    .then((data) => {
+      let newEngineer;
+      newEngineer = new Intern(data.name, data.id, data.email, data.school);
+      chooseEmployee();
+    })
+  }
 
 }
 
