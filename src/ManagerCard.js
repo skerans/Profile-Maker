@@ -7,7 +7,7 @@ const managerCard = (job) => {
   </div>
   <div class="card-body">
     <p class="card-text">ID: #${job.id}</p>
-    <p class="card-text"><a href="mailto:>${job.email}</a></p>
+    <p class="card-text"><a href="mailto:">${job.email}</a></p>
     <p class="card-text">Office #${job.office}</p>
   </div>
 </div>

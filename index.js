@@ -3,10 +3,14 @@ const fs = require('fs');
 const Manager = require('./lib/manager');
 const Intern = require('./lib/intern');
 const Engineer = require('./lib/engineer');
-const htmlPage = require(`./src/htmlPage`)
+const makeHTML = require(`./src/htmlPage`);
+const managercard = require(`./src/ManagerCard`);
+const engineercard = require(`./src/EngineerCard`);
+const interncard = require(`./src/InternCard`);
 const { profile } = require('console');
-
+let teamName = "";
 const teamArr = [];
+
 const start = () => {
 
   inquirer.prompt([{
@@ -15,6 +19,7 @@ const start = () => {
     message: `What is the name of your team?`
   }])
     .then((data) => {
+      // let teamName = "";
       teamName = data.teamName;
       chooseManager();
     })
@@ -70,7 +75,8 @@ const start = () => {
             chooseIntern();
             break;
           default:
-            fs.writeFile(`./team-profile.html`, htmlPage)
+            writePage()
+            // fs.writeFile(`./team-profile.html`, makeHTML(teamName, makeTeamCards()))
             break;
         }
       })
@@ -91,7 +97,7 @@ const start = () => {
       type: `input`,
       name: `email`,
       message: `What is the engineer\'s email address?`,
-     
+
     },
     {
       type: `input`,
@@ -99,12 +105,12 @@ const start = () => {
       message: `What is the engineers\'s GitHub username?`,
     },
     ])
-    .then((data) => {
-      let newEngineer;
-      newEngineer = new Engineer(data.name, data.id, data.email, data.github);
-      teamArr.push(newEngineer);
-      chooseEmployee();
-    })
+      .then((data) => {
+        let newEngineer;
+        newEngineer = new Engineer(data.name, data.id, data.email, data.github);
+        teamArr.push(newEngineer);
+        chooseEmployee();
+      })
   }
 
   function chooseIntern() {
@@ -122,7 +128,7 @@ const start = () => {
       type: `input`,
       name: `email`,
       message: `What is the intern\'s email address?`,
-     
+
     },
     {
       type: `input`,
@@ -130,17 +136,42 @@ const start = () => {
       message: `What school does the intern attend?`,
     },
     ])
-    .then((data) => {
-      let newIntern;
-      newIntern = new Intern(data.name, data.id, data.email, data.school);
-      teamArr.push(newIntern);
-      chooseEmployee();
-    })
+      .then((data) => {
+        let newIntern;
+        newIntern = new Intern(data.name, data.id, data.email, data.school);
+        teamArr.push(newIntern);
+        chooseEmployee();
+      })
   }
+}
 
+function writePage() {
+  fs.writeFileSync(`./team-profile.html`, makeHTML(teamName, makeTeamCards()))
 }
 
 const makeTeamCards = () => {
 
-  let cards = "";
-}
+  let team = "";
+  teamArr.forEach((member) => {
+    switch (member.title) {
+      case `Manager`:
+        team += managercard(member);
+        break;
+      case `Engineer`:
+        team += engineercard(member);
+        break;
+      case `Intern`:
+        team += interncard(member);
+        break;
+      default:
+        break;
+    }
+  });
+  return team;
+};
+
+function init() {
+  start();
+};
+
+init();

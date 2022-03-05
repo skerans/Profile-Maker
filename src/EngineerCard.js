@@ -7,7 +7,7 @@ const engineerCard = (job) => {
   </div>
   <div class="card-body">
     <p class="card-text">ID: #${job.id}</p>
-    <p class="card-text"><a href="mailto:>${job.email}</a></p>
+    <p class="card-text"><a href="mailto:">${job.email}</a></p>
     <p class="card-text"><a href="github.com/${job.github}">Github</a></p>
   </div>
 </div>

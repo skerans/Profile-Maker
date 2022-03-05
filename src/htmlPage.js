@@ -25,4 +25,4 @@ const makeHTML = function(teamName, teamCards) {
 </html>`
 }
 
-module.exports = htmlPage;
+module.exports = makeHTML;
