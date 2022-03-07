@@ -146,7 +146,7 @@ const start = () => {
 }
 
 function writePage() {
-  fs.writeFileSync(`./team-profile.html`, makeHTML(teamName, makeTeamCards()))
+  fs.writeFile(`./team-profile.html`, makeHTML(teamName, makeTeamCards()), function (err) {console.log(err)})
 }
 
 const makeTeamCards = () => {
