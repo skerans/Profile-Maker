@@ -10,6 +10,7 @@ Generate a set of profile cards for a team, based on user inputs from a command 
 - [Installation](#installation)
 - [Contribution](#contribution)
 - [License](#license)
+- [Usage](#usage)
 - [Questions](#questions)
 
 ## Installation
@@ -26,6 +27,9 @@ Follow basic contribution guidelines and coding etiquette, please.
 ![badge](https://img.shields.io/badge/license-MIT-blue)</br>
 
 This project is covered by MIT
+
+## Usage
+A short video of how to use the program can be found [here](https://drive.google.com/file/d/1qR62fAo2wPerde27yuMSxAdNISao9q6E/preview "Program Demo").
 
 ## Questions
 Email me if you have any questions at: Skerans@gmail.com</br>
