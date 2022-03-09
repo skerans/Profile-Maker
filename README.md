@@ -1,2 +1,32 @@
-# Profile-Maker
-Generate an automatic profile for team members based on parameters provided from command prompts
+<h1 align="center"> Profile Maker <h1>
+
+![badge](https://img.shields.io/badge/license-MIT-blue)
+
+## Description
+Generate a set of profile cards for a team, based on user inputs from a command line.
+
+## Table of Contents
+- [Description](#description) 
+- [Installation](#installation)
+- [Contribution](#contribution)
+- [License](#license)
+- [Questions](#questions)
+
+## Installation
+git clone </br>
+cd Profile-Maker </br>
+npm init --y </br>
+npm i </br>
+node index.js </br>
+
+## Contributing
+Follow basic contribution guidelines and coding etiquette, please.
+
+## Licenses 
+![badge](https://img.shields.io/badge/license-MIT-blue)</br>
+
+This project is covered by MIT
+
+## Questions
+Email me if you have any questions at: Skerans@gmail.com</br>
+Look for me on GitHub at: https://github.com/Skerans
